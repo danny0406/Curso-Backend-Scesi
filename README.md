@@ -18,7 +18,7 @@ $ npm install express
 ```
 ## "Hola mundo" con ExpressJS
 
-Primeramente debemos crear un archivo **`myapp.js`** o **`index.js`** y agregue el codigo siguiente:
+Primeramente debemos crear un archivo **`index.js`** y agregue el codigo siguiente:
 
 ```js
 // Importar el módulo express
@@ -50,7 +50,7 @@ app.listen(SERVER_PORT, (err, res) => {
 ```
 Ejecute la aplicación con el siguiente comando:
 ```console
-$ node app.js
+$ node src/index.js
 ```
 A continuación, cargue http://localhost:3000/ en un navegador para ver la salida
 
@@ -68,7 +68,7 @@ app.get("/healthy", (req, res) => {
 ```
 Ejecute la aplicación con el siguiente comando para recargar los cambios realizados:
 ```console
-$ node app.js
+$ node src/index.js
 ```
 Cargando http://localhost:3000/healthy en un navegador veremos la salida:
 ```json
