@@ -1,0 +1,15 @@
+{
+  "name": "curso-backend-scesi",
+  "version": "1.0.0",
+  "description": "Para la instalacion del modulo **Express** de NodeJS, se debe tener instalado previamente Node.js [descargar e instalar Node.js](https://nodejs.org/en/download/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
