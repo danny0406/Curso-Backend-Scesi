@@ -54,3 +54,27 @@ $ node app.js
 ```
 A continuación, cargue http://localhost:3000/ en un navegador para ver la salida
 
+## "/Healthy " - NodeJS y ExpressJS
+Agregamos la siguiente ruta:
+
+```js
+app.get("/healthy", (req, res) => {
+  res.status(200).json({
+    healt: "live",
+    status: 200,
+    message: "ok",
+  });
+});
+```
+Ejecute la aplicación con el siguiente comando para recargar los cambios realizados:
+```console
+$ node app.js
+```
+Cargando http://localhost:3000/healthy en un navegador veremos la salida:
+```json
+{
+    "healt": "live",
+    "status": 200,
+    "message": "ok"
+}
+```

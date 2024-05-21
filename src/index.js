@@ -6,6 +6,14 @@ app.get("/", (req, res) => {
   res.send("Hola Mundo!!!");
 });
 
+app.get("/healthy", (req, res) => {
+  res.status(200).json({
+    healt: "live",
+    status: 200,
+    message: "ok",
+  });
+});
+
 const SERVER_PORT = 3000;
 
 app.listen(SERVER_PORT, (err, res) => {
