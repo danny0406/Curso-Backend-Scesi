@@ -6,7 +6,9 @@ const getAllProducts = (req, res) => {
 };
 
 const getProductId = (req, res) => {
-  const product = service.getProductById(parseInt(req.params.id));
+  //const product = service.getProductId(parseInt(req.params.id)); Se tomo encuenta id : int
+  const product = service.getProductId(req.params.id);
+  console.log("product: ",req.par)
   if (product) {
     res.json(product);
   } else {
@@ -14,14 +16,14 @@ const getProductId = (req, res) => {
   }
 };
 
-const addProduct = (req, res) => {
-  const newProduct = { id: Date.now(), ...req.body };
+function addProduct (req, res) {
+  const newProduct = { id: String(Date.now()), ...req.body };// Asigna un id 
   service.addProduct(newProduct);
-  res.status(201).json(newProduct);
+  return res.status(201).json(newProduct);
 };
 
 const updateProduct = (req, res) => {
-  const updatedProduct = service.updateProduct(parseInt(req.params.id), req.body);
+  const updatedProduct = service.updateProduct(req.params.id, req.body);
   if (updatedProduct) {
     res.json(updatedProduct);
   } else {
@@ -30,9 +32,9 @@ const updateProduct = (req, res) => {
 };
 
 const deleteProduct = (req, res) => {
-  const deletedProduct = service.deleteProduct(parseInt(req.params.id));
+  const deletedProduct = service.deleteProduct(req.params.id);
   if (deletedProduct) {
-    res.json(deletedProduct);
+    res.status(204);
   } else {
     res.status(404).json({ error: 'Product not found' });
   }

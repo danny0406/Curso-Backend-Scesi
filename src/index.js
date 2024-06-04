@@ -5,6 +5,8 @@ const route_healthy = require('./routes/healthy.routes');
 const route_product = require('./routes/products.routes');
 
 const app = express();
+// Middleware para procesar cuerpos JSON
+app.use(express.json());
 
 app.use("/", route_healthy);
 
