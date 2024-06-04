@@ -1,4 +1,5 @@
-let products = [];
+const productsJson = require('../assets/data.json');
+let products = productsJson;
 
 const getAllProducts = () => products;
 
