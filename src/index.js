@@ -1,10 +1,22 @@
 const express = require("express");
+const sequelize = require('./config/database.config.js');
 require('dotenv').config();
 
 const route_healthy = require('./routes/healthy.routes');
 const route_product = require('./routes/products.routes');
 
 const app = express();
+
+// Sincronizar Sequelize con la base de datos
+sequelize.sync()
+  .then(() => {
+    console.log('Conectado a la base de datos PostgreSQL con Sequelize');
+  })
+  .catch((err) => {
+    console.error('No se pudo conectar a la base de datos:', err);
+  });
+
+
 // Middleware para procesar cuerpos JSON
 app.use(express.json());
 
