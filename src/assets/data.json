@@ -1,8 +1,8 @@
 [
   {
     "id": "1",
-    "name": "Toilet Paper patch",
-    "brand": "Charmin patch",
+    "name": "Toilet Paper update 1",
+    "brand": "Charmin",
     "stock": "1632",
     "batch": "2020-0001",
     "expiration": "2023-06-30",
@@ -376,41 +376,5 @@
     "expiration": "2023-04-30",
     "discount": "10",
     "id": "43"
-  },
-  {
-    "name": "Sauces",
-    "brand": "Heinz",
-    "stock": "925",
-    "batch": "2020-0044",
-    "expiration": "2022-12-31",
-    "discount": "0",
-    "id": "44"
-  },
-  {
-    "name": "Spices",
-    "brand": "McCormick",
-    "stock": "700",
-    "batch": "2021-0045",
-    "expiration": "2024-11-30",
-    "discount": "15",
-    "id": "45"
-  },
-  {
-    "name": "Baking Supplies",
-    "brand": "Nestle",
-    "stock": "550",
-    "batch": "2020-0046",
-    "expiration": "2023-10-31",
-    "discount": "0",
-    "id": "46"
-  },
-  {
-    "name": "Candy",
-    "brand": "M&M's",
-    "stock": "875",
-    "batch": "2021-0047",
-    "expiration": "2022-08-31",
-    "discount": "10",
-    "id": "47"
   }
 ]

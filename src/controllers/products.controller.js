@@ -8,7 +8,6 @@ const getAllProducts = (req, res) => {
 const getProductId = (req, res) => {
   //const product = service.getProductId(parseInt(req.params.id)); Se tomo encuenta id : int
   const product = service.getProductId(req.params.id);
-  console.log("product: ",req.par)
   if (product) {
     res.json(product);
   } else {
@@ -40,10 +39,21 @@ const deleteProduct = (req, res) => {
   }
 };
 
+const filterProducts = (req, res) => {
+  console.log('req query:',req.query)
+  const filteredProducts = service.filterProducts(req.query);
+  if (filteredProducts) {
+    res.status(200).json(filteredProducts);
+  } else {
+    res.status(404).json(filteredProducts);
+  }
+};
+
 module.exports = {
   getAllProducts,
   getProductId,
   addProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  filterProducts
 };
