@@ -41,7 +41,16 @@ const deleteProduct = (req, res) => {
 
 const filterProducts = (req, res) => {
   console.log('req query:',req.query)
-  const filteredProducts = service.filterProducts(req.query);
+  const filteredProducts = service.filterProducts(req.query);//Query
+  if (filteredProducts) {
+    res.status(200).json(filteredProducts);
+  } else {
+    res.status(404).json(filteredProducts);
+  }
+};
+const filterProductsBody = (req, res) => {
+  console.log('req body:',req.body)
+  const filteredProducts = service.filterProducts(req.body);//Body
   if (filteredProducts) {
     res.status(200).json(filteredProducts);
   } else {
@@ -55,5 +64,6 @@ module.exports = {
   addProduct,
   updateProduct,
   deleteProduct,
-  filterProducts
+  filterProducts,
+  filterProductsBody
 };

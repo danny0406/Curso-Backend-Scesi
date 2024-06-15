@@ -40,7 +40,7 @@ const deleteProduct = (id) => {
   }
   return null;
 };
-const filterProducts = (query) => {
+const filterProducts = (filter) => {
   const products = getAllProducts();
   return products.filter((product) => {
     let valid = true;
@@ -49,26 +49,26 @@ const filterProducts = (query) => {
     const discount = parseInt(product.discount, 10);
     const expirationDate = new Date(product.expiration);
 
-    if (query.brand) {
-      valid = valid && product.brand === query.brand;
+    if (filter.brand) {
+      valid = valid && product.brand === filter.brand;
     }
-    if (query.stockover) {
-      valid = valid && stock >= parseInt(query.stockover,10);
+    if (filter.stockover) {
+      valid = valid && stock >= parseInt(filter.stockover,10);
     }
-    if (query.stockbelow) {
-      valid = valid && stock <=  parseInt(query.stockbelow,10);
+    if (filter.stockbelow) {
+      valid = valid && stock <=  parseInt(filter.stockbelow,10);
     }
-    if (query.discountover) {
-      valid = valid && discount >= parseInt(query.discountover,10);
+    if (filter.discountover) {
+      valid = valid && discount >= parseInt(filter.discountover,10);
     }
-    if (query.discountbelow) {
-      valid = valid && discount <= parseInt(query.discountbelow,10);
+    if (filter.discountbelow) {
+      valid = valid && discount <= parseInt(filter.discountbelow,10);
     }
-    if (query.expireover) {
-      valid = valid && expirationDate >= new Date(query.expireover);
+    if (filter.expireover) {
+      valid = valid && expirationDate >= new Date(filter.expireover);
     }
-    if (query.expirebelow) {
-      valid = valid && expirationDate <= new Date(query.expirebelow);
+    if (filter.expirebelow) {
+      valid = valid && expirationDate <= new Date(filter.expirebelow);
     }
     return valid;
   });
