@@ -1,35 +1,60 @@
 const Product = require('../models/products.models')
 
-
 const getAllProducts = async () => {
-  return await Product.findAll();
+  try {
+    return await Product.findAll();
+  } catch (error) {
+    console.error('Error getting all products:', error);
+    throw error;  
+  }
 };
 
 const getProductId = async (id) => {
-  return await Product.findByPk(id);
+  try {
+    return await Product.findByPk(id);
+  } catch (error) {
+    console.error(`Error getting product with id ${id}:`, error);
+    throw error;  
+  }
 };
 
 const addProduct = async (product) => {
-  return await Product.create(product);
+  try {
+    return await Product.create(product);
+  } catch (error) {
+    console.error('Error adding product:', error);
+    throw error;  
+  }
 };
 
 const updateProduct = async (id, updatedProduct) => {
-  let product = await Product.findByPk(id);
-  if (product) {
-    await product.update(updatedProduct);
-    return product;
+  try {
+    let product = await Product.findByPk(id);
+    if (product) {
+      await product.update(updatedProduct);
+      return product;
+    }
+    return null;
+  } catch (error) {
+    console.error(`Error updating product with id ${id}:`, error);
+    throw error; 
   }
-  return null;
 };
 
 const deleteProduct = async (id) => {
-  const product = await Product.findByPk(id);
-  if (product) {
-    await product.destroy();
-    return product;
+  try {
+    const product = await Product.findByPk(id);
+    if (product) {
+      await product.destroy();
+      return product;
+    }
+    return null;
+  } catch (error) {
+    console.error(`Error deleting product with id ${id}:`, error);
+    throw error; 
   }
-  return null;
 };
+
 
 module.exports = {
   getAllProducts,
